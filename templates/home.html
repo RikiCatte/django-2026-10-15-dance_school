@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage - Scuola di Danza{% endblock %}
+
+{% block content %}
+<section class="hero-welcome">
+    {% if user.is_authenticated %}
+        <h1>Bentornato/a, {{ user.username }}!</h1>
+    {% else %}
+        <h1>Benvenuti nella nostra Scuola di Danza!</h1>
+    {% endif %}
+
+    <p>{{ testo }}</p>
+</section>
+
+<section class="carousel-container">
+    <h2>Ultime News & Articoli</h2>
+    <div class="article-carousel">
+        <article class="article-card">
+            <div>
+                <h3>Apertura Iscrizioni 2026/2027</h3>
+                <p>Sono ufficialmente aperte le iscrizioni ai nuovi corsi di danza classica, moderna e hip-hop per tutte le età.</p>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div>
+                <h3>Masterclass con il M° Rossi</h3>
+                <p>Un'opportunità unica per gli allievi del corso avanzato: uno stage di perfezionamento di tre giorni a Modena.</p>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div>
+                <h3>Saggio di Fine Anno</h3>
+                <p>Preparativi in corso per lo spettacolo finale che si terrà al Teatro Comunale. Scopri il tema di quest'anno!</p>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div>
+                <h3>Benefici della Danza nei Bambini</h3>
+                <p>Scopri come la propedeutica aiuta lo sviluppo motorio e la coordinazione fin dai primi anni di età.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<hr>
+
+<section class="about-preview">
+    <h2>La Nostra Passione per la Danza</h2>
+    <p>
+        La nostra scuola nasce dal desiderio di trasmettere l'amore per il movimento e la disciplina della danza. Offriamo percorsi formativi completi e personalizzati per chi desidera intraprendere un cammino amatoriale o professionale.
+    </p>
+    <p>
+        Attraverso lezioni teoriche e pratiche, accompagniamo ogni allievo nella scoperta del proprio potenziale espressivo, garantendo un ambiente stimolante, sicuro e inclusivo.
+    </p>
+</section>
+{% endblock %}
