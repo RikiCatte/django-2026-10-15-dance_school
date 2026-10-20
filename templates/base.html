@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <title>{% block title %}Dance School{% endblock %}</title>
+    <script src="{% static 'js/toggle-modal.js' %}" defer></script>
+  </head>
+  <body>
+    <nav>
+      <a href="{% url 'home' %}" title="Vai a Homepage">
+        <img src="{% static 'img/dance-school-logo.jpg' %}" alt="Logo scuola danza"/>
+      </a>
+      <a href="{% url 'about' %}" title="Vai a Chi siamo">Chi siamo</a>
+      <a href="#" title="Apri modal Registrati" onclick="toggleRegistrati()">Registrati</a>
+      <a href="#" title="Apri modal Accedi">Accedi</a>
+    </nav>
+    <section id="registrati">
+      <form>
+          <p>
+              <label for="registrati-nome">Nome</label>
+              <input type="text" name="nome" id="registrati-nome">
+          </p>
+          <p>
+              <label for="registrati-cognome">Cognome</label>
+              <input type="text" name="cognome" id="registrati-cognome">
+          </p>
+          <p>
+              <label for="registrati-email">Email</label>
+              <input type="email" name="email" id="registrati-email">
+          </p>
+          <p>
+              <button type="submit">Invia</button>
+          </p>
+      </form>
+    </section>
+    <main>{% block content %} {% endblock %}</main>
+    <footer>
+      <address>Via F. Tambburini 96, Modena, 41124</address>
+      <p>Telefono: +39 545454</p>
+      <p>
+        Email: <a href="mailto:email@dance-school.com">email@dance-school.com</a>
+      </p>
+    </footer>
+  </body>
+</html>

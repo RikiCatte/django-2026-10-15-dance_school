@@ -1,0 +1,55 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: lightgray;
+  color: #222222;
+}
+
+nav,
+main,
+footer {
+  margin: 0 auto;
+  padding: 1rem 0;
+  width: 90%;
+  border-bottom: 0.2rem solid #222222;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: center;
+}
+
+nav > a {
+  padding: 1rem 2rem;
+}
+
+nav > a:hover {
+  color: violet;
+}
+
+nav > a > img {
+  height: 3rem;
+}
+
+#registrati {
+  display: none;
+  width: 80vw;
+  border: 1rem solid darkgray;
+  background-color: aqua;
+  height: 50vh;
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+}
+
+form {
+  padding: 2rem;
+}
+
+img {
+  /* max-width: 4rem;
+  width: 100%; */
+  height: auto;
+}
