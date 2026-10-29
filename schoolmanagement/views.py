@@ -22,5 +22,5 @@ def dettaglio_scuola(request, pk):
     return render(
         request,
         "schoolmanagement/school_detail.html",
-        {"school": scuola},
+        {"object": scuola},
     )

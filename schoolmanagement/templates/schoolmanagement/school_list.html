@@ -1,1 +1,29 @@
-{% extends "base_list.html" %}
+{% extends "base.html" %}
+{% block title %}List of objects{% endblock %}
+{% block content %}
+    {% if object_list %}
+        <h1>Lista delle {% block custom-type %}scuole{% endblock %}:</h1>
+        <table>
+            <thead>
+                <tr>
+                    {% block list-header %}<th>Id</th><th>Nome</th><th>Indirizzo</th><th>Stato</th>{% endblock %}
+                </tr>
+            </thead>
+            <tbody>
+                {% block list-rows %}
+                    {% for el in object_list %}
+                        <tr>
+                            <td>{{ el.id }}</td>
+                            <td>{{ el.name }}</td>
+                            <td>{{ el.street }}, {{ el.zip_code }}, {{ el.city }} ({{ el.province }})</td>
+                            <td>{{ el.country }}</td>
+                            <td><a href="{% url 'dettaglio_scuola' el.id %}">Mostra</a></td>
+                        </tr>
+                    {% endfor %}
+                {% endblock %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nessun oggetto trovato!</p>
+    {% endif %}
+{% endblock %}
