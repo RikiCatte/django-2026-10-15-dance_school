@@ -17,5 +17,9 @@ class School(models.Model):
     email = models.EmailField(null=True, blank=True)
     vat = models.CharField(max_length=11, null=True, blank=True)
 
+    @property
+    def full_address(self) -> str:
+        return f"{ self.street }, { self.zip_code }, { self.city }, { self.province }"
+
     def __str__(self) -> str:
         return self.name
