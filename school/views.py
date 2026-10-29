@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from school.models import DayOfTheWeek
+
+__all__ = ["DayOfTheWeekListView", "DayOfTheWeekDetailView"]
+
+class DayOfTheWeekListView(generic.ListView):
+    model = DayOfTheWeek
+
+class DayOfTheWeekDetailView(generic.DetailView):
+    model = DayOfTheWeek
