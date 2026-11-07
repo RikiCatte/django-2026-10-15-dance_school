@@ -3,4 +3,16 @@
     <p>Id: {{ object.id }}</p>
     <p>Nome: {{ object.name }}</p>
     <p>Numero: {{ object.number }}</p>
+    <p><a href="{% url 'dayoftheweek_update' object.id %}">Modifica</a></p>
+    <hr>
+    <h2>Corsi di questo giorno</h2>
+    {% if object.courses.count %}
+        <ul>
+            {% for course in object.courses.all %}
+                <li><a href="{% url 'course_detail' course.pk %}">{{ course }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nessun corso per questo giorno</p>
+    {% endif %}
 {% endblock %}

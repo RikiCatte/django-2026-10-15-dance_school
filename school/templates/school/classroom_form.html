@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if object.pk %}
+        <h1>Modifica la Classe {{ object.pk }}</h1>
+    {% else %}
+        <h1>Crea una nuova Classe</h1>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Invia">
+    </form>
+{% endblock %}

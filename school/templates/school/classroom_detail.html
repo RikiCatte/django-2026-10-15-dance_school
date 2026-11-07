@@ -1,0 +1,22 @@
+{% extends "base_detail.html" %}
+{% block detail-content %}
+    <p>Id: {{ object.id }}</p>
+    <p>Nome: {{ object.name }}</p>
+    <p>
+        <a href="{% url 'classroom_update' object.id %}">Modifica</a> &middot;
+        <a href="{% url 'classroom_list' %}">Torna alla lista classi</a>
+    </p>
+<hr>
+{% if object.courses.count %}
+<h2>Lista dei corsi in questa aula</h2>
+<hr>
+<ul>
+    {% for course in object.courses.all %}
+        <li><a href="{% url 'course_detail' course.pk %}">{{ course }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Nessun corso per questa classe</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base_list.html" %}
+{% block custom-type %}Classi{% endblock %}
+{% block list-header %}<th>Id</th><th>Nome</th><th></th>{% endblock %}
+{% block list-rows %}
+    {% for el in object_list %}
+        <tr>
+            <td>{{ el.id }}</td>
+            <td>{{ el.name }}</td>
+            <td><a href="{% url 'classroom_detail' el.id %}">Mostra</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+{% block add-new %}
+    <p><a href="{% url 'classroom_create' %}">Aggiungi nuova</a></p>
+{% endblock %}
