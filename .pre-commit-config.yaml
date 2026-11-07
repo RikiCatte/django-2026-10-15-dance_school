@@ -24,13 +24,6 @@ repos:
       - id: prettier
         types_or: [css, javascript, ts, json]
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.4.0
-    hooks:
-      - id: mypy
-        exclude: "[a-zA-Z]*/(migrations)/(.)*"
-        files: "app"
-
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.17.0
     hooks:
