@@ -5,39 +5,74 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('schoolmanagement', '0001_initial'),
+        ("schoolmanagement", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Classroom',
+            name="Classroom",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('capacity', models.IntegerField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("capacity", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='DayOfTheWeek',
+            name="DayOfTheWeek",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.IntegerField()),
-                ('name', models.CharField(max_length=10)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("number", models.IntegerField()),
+                ("name", models.CharField(max_length=10)),
             ],
         ),
         migrations.CreateModel(
-            name='Course',
+            name="Course",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('subject', models.CharField(max_length=50)),
-                ('starting_hour', models.IntegerField()),
-                ('classroom', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='courses', to='school.classroom')),
-                ('school', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='courses', to='schoolmanagement.school')),
-                ('day_of_the_week', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='courses', to='school.dayoftheweek')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("subject", models.CharField(max_length=50)),
+                ("starting_hour", models.IntegerField()),
+                (
+                    "classroom",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="courses",
+                        to="school.classroom",
+                    ),
+                ),
+                (
+                    "school",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="courses",
+                        to="schoolmanagement.school",
+                    ),
+                ),
+                (
+                    "day_of_the_week",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="courses",
+                        to="school.dayoftheweek",
+                    ),
+                ),
             ],
         ),
     ]

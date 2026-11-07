@@ -1,6 +1,6 @@
 # from django.http import HttpResponse
-from django.shortcuts import render
 from django.http import JsonResponse
+from django.shortcuts import render
 
 __all__ = ["home", "about", "api_example"]
 
@@ -8,6 +8,7 @@ __all__ = ["home", "about", "api_example"]
 #     return HttpResponse(
 #         "<p>View di prova con HttpResponse</p>"
 #     )
+
 
 def home(request):
     context = {
@@ -19,16 +20,12 @@ def home(request):
         context=context,
     )
 
+
 def about(request):
-    return render(
-        request,
-        template_name="about.html"
-    )
+    return render(request, template_name="about.html")
+
 
 def api_example(request):
-    data = {
-        "name": "Ciao",
-        "email": "ciao@ciao.it"
-    }
+    data = {"name": "Ciao", "email": "ciao@ciao.it"}
 
     return JsonResponse(data)

@@ -19,7 +19,7 @@ class School(models.Model):
 
     @property
     def full_address(self) -> str:
-        return f"{ self.street }, { self.zip_code }, { self.city }, { self.province }"
+        return f"{self.street}, {self.zip_code}, {self.city}, {self.province}"
 
     def __str__(self) -> str:
         return self.name
