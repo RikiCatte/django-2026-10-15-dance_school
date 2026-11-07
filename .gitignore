@@ -38,3 +38,12 @@ venv
 
 # prettier node_modules
 node_modules
+
+# python version
+.python-version
+
+# planning docs
+docs/docs.md
+
+# css restyling prototype
+css-revamp.html
