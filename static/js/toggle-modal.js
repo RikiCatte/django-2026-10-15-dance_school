@@ -10,3 +10,7 @@ const toggleRegistrati = () => {
     registratiSection.style.setProperty("display", "none");
   }
 };
+
+const chiudiRegistrati = () => {
+  registratiSection.style.setProperty("display", "none");
+};
