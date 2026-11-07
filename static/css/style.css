@@ -1,119 +1,263 @@
+/* ============================================================
+   Dance School — design system
+   Token derivati dal prototipo css-revamp.html
+   ============================================================ */
+:root {
+  --ds-primary: #d63384;
+  --ds-primary-dark: #b02a6b;
+  --ds-primary-soft: #fbe7f1;
+  --ds-bg: #faf7f9;
+  --ds-surface: #ffffff;
+  --ds-text: #1f2430;
+  --ds-muted: #5c6470;
+  --ds-border: #e6e0e8;
+  --ds-sp-1: 4px;
+  --ds-sp-2: 8px;
+  --ds-sp-3: 16px;
+  --ds-sp-4: 24px;
+  --ds-sp-5: 40px;
+  --ds-radius: 10px;
+  --ds-shadow: 0 2px 10px rgba(31, 36, 48, 0.06);
+}
+
+/* ---------- base ---------- */
+html {
+  font-size: 16px;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  background: lightgray;
-  color: #222222;
+  background: var(--ds-bg);
+  color: var(--ds-text);
 }
 
-nav,
-main,
-footer {
-  margin: 0 auto;
-  padding: 1rem 0;
-  width: 90%;
-  border-bottom: 0.2rem solid #222222;
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  vertical-align: center;
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ds-text);
 }
 
-nav > a {
-  padding: 1rem 2rem;
+a {
+  color: var(--ds-primary-dark);
 }
 
-nav > a:hover {
-  color: violet;
-}
-
-nav > a > img {
-  height: 3rem;
-}
-
-#registrati {
-  display: none;
-  width: 80vw;
-  border: 1rem solid darkgray;
-  background-color: aqua;
-  height: 50vh;
-  position: fixed;
-  top: 10vh;
-  left: 10vw;
-}
-
-form {
-  padding: 2rem;
+/* accessibilità: focus sempre visibile */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--ds-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 img {
-  /* max-width: 4rem;
-  width: 100%; */
   height: auto;
 }
 
-/* about page */
-.about-section {
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------- navbar ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--ds-sp-1);
+  min-height: 64px;
+  width: 100%;
+  margin: 0;
+  padding: var(--ds-sp-2) var(--ds-sp-4);
+  background: var(--ds-surface);
+  border-bottom: 1px solid var(--ds-border);
+  box-shadow: var(--ds-shadow);
 }
 
-.contact-section {
-  font-style: italic;
-}
-
-/* home.html */
-.hero-welcome {
-  background-color: #f8f9fa;
-  padding: 24px;
+nav > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--ds-sp-3);
+  color: var(--ds-text);
+  text-decoration: none;
   border-radius: 8px;
-  margin-bottom: 30px;
-  border-left: 5px solid #d63384;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
+nav > a:hover {
+  background: var(--ds-primary-soft);
+  color: var(--ds-primary-dark);
+}
+
+nav > a > img {
+  height: 34px;
+  width: auto;
+}
+
+nav > a.nav-cta {
+  background: var(--ds-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+nav > a.nav-cta:hover {
+  background: var(--ds-primary-dark);
+  color: #fff;
+}
+
+/* ---------- main ---------- */
+main {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--ds-sp-4) var(--ds-sp-3);
+  border: none;
+}
+
+/* ---------- footer ---------- */
+footer {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--ds-sp-5) var(--ds-sp-4);
+  background: var(--ds-text);
+  color: #e8e6ea;
+  border: none;
+  border-radius: var(--ds-radius) var(--ds-radius) 0 0;
+}
+
+footer address {
+  font-style: normal;
+}
+
+footer a {
+  color: #ffd6ea;
+}
+
+/* ---------- tabelle (liste) ---------- */
+table {
+  width: 100%;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--ds-radius);
+  overflow: hidden;
+}
+
+table th {
+  background: var(--ds-primary-soft);
+  color: var(--ds-primary-dark);
+  text-align: left;
+  font-weight: 600;
+  padding: var(--ds-sp-3);
+  border-bottom: 1px solid var(--ds-border);
+}
+
+table td {
+  padding: var(--ds-sp-3);
+  border-bottom: 1px solid var(--ds-border);
+  color: var(--ds-text);
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table tbody tr:hover {
+  background: var(--ds-primary-soft);
+}
+
+/* ---------- home: hero ---------- */
+.hero-welcome {
+  background: linear-gradient(
+    135deg,
+    var(--ds-surface) 0%,
+    var(--ds-primary-soft) 100%
+  );
+  border: 1px solid var(--ds-border);
+  border-left: 6px solid var(--ds-primary);
+  border-radius: var(--ds-radius);
+  padding: var(--ds-sp-5);
+  margin-bottom: var(--ds-sp-4);
+}
+
+.hero-welcome h1 {
+  margin-bottom: var(--ds-sp-2);
+}
+
+.hero-welcome p {
+  color: var(--ds-muted);
+  margin-bottom: 0;
+}
+
+/* ---------- home: card news ---------- */
 .carousel-container {
-  margin-bottom: 40px;
+  margin-bottom: var(--ds-sp-5);
 }
 
 .article-carousel {
   display: flex;
-  gap: 20px;
+  gap: var(--ds-sp-3);
   overflow-x: auto;
-  padding: 10px 0;
+  padding: var(--ds-sp-2) 0;
   scroll-snap-type: x mandatory;
 }
 
 .article-card {
   flex: 0 0 280px;
   scroll-snap-align: start;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  padding: var(--ds-sp-4);
+  box-shadow: var(--ds-shadow);
   display: flex;
   flex-direction: column;
+  gap: var(--ds-sp-2);
   justify-content: space-between;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(31, 36, 48, 0.1);
 }
 
 .article-card h3 {
   margin-top: 0;
-  color: #333333;
-  font-size: 1.15rem;
+  color: var(--ds-text);
+  font-size: 1.05rem;
 }
 
 .article-card p {
-  color: #666666;
+  color: var(--ds-muted);
   font-size: 0.95rem;
   line-height: 1.4;
+  margin: 0;
 }
 
 .article-card .read-more {
   align-self: flex-start;
-  color: #d63384;
+  color: var(--ds-primary);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 0.9rem;
 }
 
@@ -121,21 +265,100 @@ img {
   text-decoration: underline;
 }
 
+/* ---------- about ---------- */
+.about-section {
+  line-height: 1.65;
+}
+
+.about-section p {
+  color: var(--ds-muted);
+}
+
+.contact-section {
+  line-height: 1.6;
+}
+
 .about-preview {
   line-height: 1.6;
-  color: #444444;
+  color: var(--ds-muted);
 }
 
-/* school management */
-table {
-  background-color: wheat;
-  border: 1px solid darkgray;
-  border-collapse: collapse;
+/* ---------- form di registrazione (modal) ---------- */
+#registrati {
+  position: fixed;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80vw, 420px);
+  min-height: 50vh;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.18);
+  z-index: 200;
 }
 
-table td,
-table th {
-  border: 1px solid darkgray;
-  margin: 0;
-  padding: 0.6rem;
+.close-registrati {
+  position: absolute;
+  top: var(--ds-sp-2);
+  right: var(--ds-sp-2);
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ds-border);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.close-registrati:hover {
+  background: var(--ds-primary-soft);
+  color: var(--ds-primary-dark);
+}
+
+#registrati form {
+  padding: var(--ds-sp-4);
+}
+
+#registrati label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--ds-sp-1);
+  color: var(--ds-text);
+}
+
+#registrati input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: var(--ds-sp-3);
+  border: 1px solid var(--ds-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--ds-text);
+  background: var(--ds-surface);
+}
+
+/* ---------- pulsanti invio ---------- */
+button[type="submit"],
+input[type="submit"] {
+  display: inline-block;
+  background: var(--ds-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  background: var(--ds-primary-dark);
 }
